@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:kafee/core/themes/theme_colors.dart';
 import 'package:kafee/core/utils/validator.dart';
 
 import '../../home_page/home_page.dart';
@@ -18,6 +19,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme;
+
     return Scaffold(
       body: Center(
         child: Padding(
@@ -42,17 +45,15 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Text(
                           "Email",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
+                          style: textStyle.titleMedium,
                         ),
                       ),
                       TextFormField(
+                        initialValue: "admin@gmail.com",
                         decoration: InputDecoration(
                           hintText: 'Email',
                           labelStyle: const TextStyle(
@@ -67,17 +68,15 @@ class _LoginPageState extends State<LoginPage> {
                       const SizedBox(
                         height: 4.0,
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Text(
                           "Password",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                          ),
+                          style: textStyle.titleMedium,
                         ),
                       ),
                       TextFormField(
+                        initialValue: "admin123",
                         obscureText: _obscureText,
                         decoration: InputDecoration(
                           hintText: "Password",
@@ -102,8 +101,21 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         validator: Validator.password,
                       ),
-                      const SizedBox(
-                        height: 30.0,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: InkWell(
+                            onTap: () {},
+                            child: const Text(
+                              "Forgot password?",
+                              style: TextStyle(
+                                color: AppColors.primaryColor,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
@@ -124,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                             }
                             return;
                           },
-                          child: const Text("Masuk"),
+                          child: const Text("Login"),
                         ),
                       ),
                     ],

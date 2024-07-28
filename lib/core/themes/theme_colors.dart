@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // abstrac class olmali ?
-  static const Color primaryColor = Color(0xFFDF591C);
+  static const Color primaryColor = Color(0xFF3D2318);
   static const Color onPrimary = Color(0xFFFFFFFF);
   static const Color primaryContainer = Color(0xFFFFDBCE);
   static const Color onPrimaryContainer = Color(0xFF370E00);
